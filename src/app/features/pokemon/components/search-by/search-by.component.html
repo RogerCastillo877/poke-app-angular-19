@@ -1,8 +1,0 @@
-<h2>Search by:</h2>
-<hr>
-<!-- {{ pokemon$ | async }} -->
-<section>
-  <h3>Search a new Pokemon</h3>
-  <input type="text" placeholder="Name or ID" [value]="name()" (change)="name.set(txtSearchBy.value)" #txtSearchBy>
-  <button (click)="getNewPokemon()">Get One</button>
-</section>
