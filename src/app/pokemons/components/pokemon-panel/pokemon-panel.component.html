@@ -1,1 +1,7 @@
-<p>pokemon-panel works!</p>,
+<div>
+  <h2>Pokemon Panel</h2>
+  <hr>
+  @for (pokemon of basicPokemons(); track $index) {
+  <app-pokemon-card [name]="pokemon.name" [url]="pokemon.url"></app-pokemon-card>
+  }
+</div>

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-pokemon-card',
@@ -6,4 +6,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   templateUrl: './pokemon-card.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PokemonCardComponent { }
+export class PokemonCardComponent {
+  name = input.required<string>();
+  url = input<string>();
+}

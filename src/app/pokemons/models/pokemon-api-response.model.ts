@@ -2,10 +2,10 @@ export type PokemonApiResponse = {
   count: number;
   next: string;
   previous: null;
-  results: Pokemon[];
+  results: BasicPokemon[];
 }
 
-export type Pokemon = {
+export type BasicPokemon = {
   name: string;
   url: string;
 }
