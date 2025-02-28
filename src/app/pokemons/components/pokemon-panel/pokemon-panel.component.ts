@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import { PokemonCardComponent } from "../../../ui/pokemon-card/pokemon-card.component";
-import { BasicPokemon } from '../../models/pokemon-api-response.model';
+import { Pokemon } from '../../models/pokemon.model';
 
 @Component({
   selector: 'app-pokemon-panel',
@@ -10,5 +10,5 @@ import { BasicPokemon } from '../../models/pokemon-api-response.model';
 })
 export class PokemonPanelComponent {
 
-  basicPokemons = input.required<BasicPokemon[]>();
+  pokemons = input.required<Pokemon[]>();
 }

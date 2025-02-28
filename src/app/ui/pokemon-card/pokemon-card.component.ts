@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { Species, Sprites } from '../../pokemons/models/pokemon.model';
 
 @Component({
   selector: 'app-pokemon-card',
@@ -7,6 +8,8 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PokemonCardComponent {
+  id = input.required<number>();
   name = input.required<string>();
-  url = input<string>();
+  species = input.required<Species>();
+  image = input.required<string>()
 }

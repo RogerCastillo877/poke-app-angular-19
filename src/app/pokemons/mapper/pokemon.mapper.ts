@@ -6,7 +6,7 @@ export class PokemonMapper {
       id: pokemonItem.id,
       name: pokemonItem.name,
       species: pokemonItem.species,
-      sprites: pokemonItem.sprites
+      sprites: pokemonItem.sprites.front_default
     }
   }
 

@@ -2,6 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { environment } from '@environments/environment';
 import type { BasicPokemon, PokemonApiResponse } from '../models/pokemon-api-response.model';
+import { PokemonMapper } from '../mapper/pokemon.mapper';
+import { FullPokemon, Pokemon } from '../models/pokemon.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,19 +13,25 @@ export class PokemonDataApiService {
 
   private http = inject(HttpClient);
 
-  pokemonsArray = signal<BasicPokemon[]>([]);
+  pokemonsArray = signal<Pokemon[]>([]);
   pokemonsDataLoading = signal(true);
+  // pokeArr = signal<FullPokemon>();
 
   constructor() {
     this.loadPokemons();
   }
 
-  loadPokemons() {
-    this.http.get<PokemonApiResponse>(`${environment.urlPokemonApi}/pokemon?limit=10&offset=0`)
-      .subscribe((resp) => {
-        this.pokemonsArray.set(resp.results);
-        this.pokemonsDataLoading.set(false);
-      })
+  loadPokemons(cant: number = 10) {
+    const pokemons: Pokemon[] = [];
+    for (let index = 1; index <= cant; index++) {
+      this.http.get<FullPokemon>(`${environment.urlPokemonApi}/pokemon/${index}`)
+        .subscribe((resp) => {
+          pokemons.push(PokemonMapper.mapFullPokemonItemToPokemon(resp));
+          this.pokemonsArray.set([...pokemons]);
+          console.log(pokemons)
+        })
+    }
+    this.pokemonsDataLoading.set(false);
   }
 }
 

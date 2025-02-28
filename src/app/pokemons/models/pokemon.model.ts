@@ -2,7 +2,7 @@ export type Pokemon = {
   id: number,
   name: string,
   species: Species,
-  sprites: Sprites
+  sprites: string
 }
 
 export type FullPokemon = {
