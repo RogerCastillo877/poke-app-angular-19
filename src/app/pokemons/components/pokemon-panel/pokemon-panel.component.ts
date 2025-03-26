@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input, OnInit } from '@angular/core';
 import { PokemonCardComponent } from "../../../ui/pokemon-card/pokemon-card.component";
 import { Pokemon } from '../../models/pokemon.model';
 
@@ -8,7 +8,10 @@ import { Pokemon } from '../../models/pokemon.model';
   templateUrl: './pokemon-panel.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PokemonPanelComponent {
+export class PokemonPanelComponent implements OnInit {
 
   pokemons = input.required<Pokemon[]>();
+
+  ngOnInit(): void {
+  }
 }

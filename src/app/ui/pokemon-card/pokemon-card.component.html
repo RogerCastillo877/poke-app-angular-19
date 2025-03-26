@@ -1,7 +1,12 @@
 <div>
-  <img [src]="image()" alt="">
+  <img [src]="img" alt="">
   <div><strong>Id:</strong> {{id()}}</div>
   <div><strong>{{name()}}</strong></div>
 
   <!-- <a href="url()">See more...</a> -->
+  <div>
+    <button (click)="changeImage(1)">
+      < </button>
+        <button (click)="changeImage(-1)"> > </button>
+  </div>
 </div>

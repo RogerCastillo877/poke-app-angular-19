@@ -1,3 +1,14 @@
 <section>
   <app-pokemon-panel [pokemons]="pokeDataService.pokemonsArray()"></app-pokemon-panel>
 </section>
+<section>
+  <input type="text" name="" id="" placeholder="Search Pokemon" (keyup.enter)="onSearch(txtSearch.value)" #txtSearch>
+</section>
+<Section>
+  <!-- pokemon-list -->
+  <div>
+    <div>{{(this.otherPokemon$ | async )?.id }}</div>
+    <div>{{(this.otherPokemon$ | async )?.name }}</div>
+    {{(this.otherPokemon$ | async )?.sprites?.front_default }}
+  </div>
+</Section>

@@ -4,7 +4,8 @@
   <div style="display: flex;">
     @for (pokemon of pokemons(); track $index) {
     <app-pokemon-card [id]="pokemon.id" [name]="pokemon.name" [species]="pokemon.species"
-      [image]="pokemon.sprites"></app-pokemon-card>
+      [images]="pokemon.sprites"></app-pokemon-card>
     }
+
   </div>
 </div>

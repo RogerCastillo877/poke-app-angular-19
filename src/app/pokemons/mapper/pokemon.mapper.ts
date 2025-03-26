@@ -10,7 +10,7 @@ export class PokemonMapper {
     }
   }
 
-  static mapPokemonsItemsToPokemonArray(pokemonItems: FullPokemon[]): Pokemon[] {
-    return pokemonItems.map(this.mapFullPokemonItemToPokemon);
-  }
+  // static mapPokemonsItemsToPokemonArray(pokemonItems: FullPokemon[]): Pokemon[] {
+  //   return pokemonItems.map(this.mapFullPokemonItemToPokemon);
+  // }
 }

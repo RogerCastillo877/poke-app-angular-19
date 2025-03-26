@@ -1,9 +1,4 @@
-export type Pokemon = {
-  id: number,
-  name: string,
-  species: Species,
-  sprites: string
-}
+export type Pokemon = Pick<FullPokemon, 'id' | 'name' | 'species' | 'sprites'>
 
 export type FullPokemon = {
   abilities: Ability[];

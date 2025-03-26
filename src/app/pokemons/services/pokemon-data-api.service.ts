@@ -19,19 +19,24 @@ export class PokemonDataApiService {
 
   constructor() {
     this.loadPokemons();
+    console.log(this.pokemonsArray())
   }
 
   loadPokemons(cant: number = 10) {
-    const pokemons: Pokemon[] = [];
+    const pokemons: FullPokemon[] = [];
     for (let index = 1; index <= cant; index++) {
       this.http.get<FullPokemon>(`${environment.urlPokemonApi}/pokemon/${index}`)
         .subscribe((resp) => {
-          pokemons.push(PokemonMapper.mapFullPokemonItemToPokemon(resp));
+          // pokemons.push(PokemonMapper.mapFullPokemonItemToPokemon(resp));
+          pokemons.push(resp);
           this.pokemonsArray.set([...pokemons]);
-          console.log(pokemons)
         })
     }
     this.pokemonsDataLoading.set(false);
+  }
+
+  searchPokemonById(id: number = 1): Observable<FullPokemon> {
+    return this.http.get<FullPokemon>(`${environment.urlPokemonApi}/pokemon/${id}`);
   }
 }
 
