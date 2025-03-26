@@ -26,7 +26,6 @@ export class PokemonCardComponent implements OnInit {
     const max = imgs.length - 1;
 
     this.defauld = this.defauld + num;
-    this.defauld >= max ? 'yes' : 'noop';
     const index = this.defauld > max ? this.defauld = min : this.defauld < min ? this.defauld = max : this.defauld;
     this.img = imgs[index] as string;
   }
