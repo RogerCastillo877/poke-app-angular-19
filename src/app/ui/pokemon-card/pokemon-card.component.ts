@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component, input, OnInit } from '@angular/core';
 import { Species, Sprites } from '../../pokemons/models/pokemon.model';
+import { NgIf, NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-pokemon-card',
-  imports: [],
+  imports: [NgOptimizedImage, NgIf],
   templateUrl: './pokemon-card.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

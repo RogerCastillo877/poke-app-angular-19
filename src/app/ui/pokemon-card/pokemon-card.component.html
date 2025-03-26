@@ -1,5 +1,6 @@
 <div>
-  <img [src]="img" alt="">
+  <img [src]="img" alt="" *ngIf="!!img">
+  <img [ngSrc]="this.images().front_default" alt="" *ngIf="!img">
   <div><strong>Id:</strong> {{id()}}</div>
   <div><strong>{{name()}}</strong></div>
 
