@@ -12,6 +12,5 @@ export class PokemonPanelComponent implements OnInit {
 
   pokemons = input.required<Pokemon[]>();
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 }

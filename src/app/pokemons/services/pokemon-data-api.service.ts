@@ -15,20 +15,20 @@ export class PokemonDataApiService {
 
   pokemonsArray = signal<Pokemon[]>([]);
   pokemonsDataLoading = signal(true);
-  // pokeArr = signal<FullPokemon>();
+  pokeList = signal<PokemonApiResponse | null>(null);
 
   constructor() {
     this.loadPokemons();
-    console.log(this.pokemonsArray())
+    this.getPokemonsList();
   }
 
   loadPokemons(cant: number = 10) {
-    const pokemons: FullPokemon[] = [];
+    const pokemons: Pokemon[] = [];
     for (let index = 1; index <= cant; index++) {
       this.http.get<FullPokemon>(`${environment.urlPokemonApi}/pokemon/${index}`)
         .subscribe((resp) => {
-          // pokemons.push(PokemonMapper.mapFullPokemonItemToPokemon(resp));
-          pokemons.push(resp);
+
+          pokemons.push(PokemonMapper.mapFullPokemonItemToPokemon(resp));
           this.pokemonsArray.set([...pokemons]);
         })
     }
@@ -37,6 +37,11 @@ export class PokemonDataApiService {
 
   searchPokemonById(id: number = 1): Observable<FullPokemon> {
     return this.http.get<FullPokemon>(`${environment.urlPokemonApi}/pokemon/${id}`);
+  }
+
+  getPokemonsList() {
+    return this.http.get<PokemonApiResponse>(`${environment.urlPokemonApi}/pokemon`)
+      .subscribe(res => this.pokeList.set(res))
   }
 }
 

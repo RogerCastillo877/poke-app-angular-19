@@ -1,4 +1,6 @@
 <section>
+  <div>Puede buscar dentro de la lista actual de pokemons que es de <span>{{ pokeDataService.pokeList()?.count}}</span>
+  </div>
   <app-pokemon-panel [pokemons]="pokeDataService.pokemonsArray()"></app-pokemon-panel>
 </section>
 <section>
@@ -6,6 +8,7 @@
 </section>
 <Section>
   <!-- pokemon-list -->
+
   <div>
     <div>{{(this.otherPokemon$ | async )?.id }}</div>
     <div>{{(this.otherPokemon$ | async )?.name }}</div>

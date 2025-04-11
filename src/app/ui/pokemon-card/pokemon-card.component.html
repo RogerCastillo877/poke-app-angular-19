@@ -1,6 +1,5 @@
 <div>
-  <img [src]="img" alt="" *ngIf="!!img">
-  <img [ngSrc]="this.images().front_default" alt="" *ngIf="!img">
+  <img [ngSrc]="img" alt="" *ngIf="img" width="90" height="90" priority>
   <div><strong>Id:</strong> {{id()}}</div>
   <div><strong>{{name()}}</strong></div>
 

@@ -4,7 +4,7 @@ import { PokemonDataApiService } from '../../services/pokemon-data-api.service';
 import { PokemonPanelComponent } from "../../components/pokemon-panel/pokemon-panel.component";
 import { BehaviorSubject, Observable, Subject, switchMap } from 'rxjs';
 import { FullPokemon } from '../../models/pokemon.model';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-home-page',
@@ -15,6 +15,7 @@ import { AsyncPipe } from '@angular/common';
 })
 export default class HomePageComponent {
   pokeDataService = inject(PokemonDataApiService);
+  pokemonList = this.pokeDataService.pokeList();
 
   requestPokemon$: Subject<any> = new BehaviorSubject('');
 
@@ -24,6 +25,5 @@ export default class HomePageComponent {
 
   onSearch(query: string) {
     this.requestPokemon$.next(query)
-    this.otherPokemon$.subscribe(res => console.log(res))
   }
 }
